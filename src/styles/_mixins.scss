@@ -4,3 +4,9 @@
   font-weight: $weight;
   font-style: normal;
 }
+
+@mixin desktop {
+  @media (min-width: 760px) {
+    @content;
+  }
+}

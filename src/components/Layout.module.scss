@@ -1,0 +1,108 @@
+@import '../styles/variables', '../styles/mixins';
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  width: 100%;
+  max-width: 1440px;
+  padding: 0 20px;
+  margin: 0 auto;
+  flex: 1;
+  
+  @include desktop {
+    padding: 0 100px;
+  }
+}
+
+.nav {
+  height: 94px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+  @include desktop {
+    height: 163px;
+  }
+}
+
+.logo {
+  height: 43px;
+  width: auto;
+
+  @include desktop {
+    height: 68px;
+  }
+}
+
+.navLinks {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  gap: 25px;
+
+  @include desktop {
+    gap: 60px;
+  }
+}
+
+.navLink {
+  font-size: 0.75em;
+  color: $black;
+  text-transform: uppercase;
+  @include montserrat(500);
+
+  @include desktop {
+    font-size: 1.5em;
+    text-transform: none;
+  }
+}
+
+.active {
+  text-decoration: underline;
+}
+
+.footer {
+  height: 209px;
+  background-color: $black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  @include desktop {
+    gap: 0;
+    position: relative;
+  }
+}
+
+.footerLogo {
+  width: 122px;
+  height: auto;
+
+  @include desktop {
+    position: relative;
+    bottom: 1em;
+  }
+}
+
+.copyright {
+  color: $white;
+  font-size: 0.75em;
+  max-width: 134px;
+  text-align: center;
+  line-height: 142%;
+  @include montserrat(500);
+
+  @include desktop {
+    font-size: 1.5em;
+    max-width: none;
+    position: absolute;
+    bottom: 1em;
+  }
+}
