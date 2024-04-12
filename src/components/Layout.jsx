@@ -36,9 +36,9 @@ export default function Layout() {
             </li>
           </ul>
         </nav>
-        <main>
+        <div>
           <Outlet />
-        </main>
+        </div>
       </div>
       <footer className={styles.footer}>
         <img className={styles.footerLogo} src={logoWhite} alt="Logo de Kasa" />
