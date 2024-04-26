@@ -1,4 +1,4 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, ScrollRestoration } from "react-router-dom";
 import logo from "../assets/logo.svg";
 import logoWhite from "../assets/logo-white.svg";
 import styles from "./Layout.module.scss";
@@ -6,6 +6,7 @@ import styles from "./Layout.module.scss";
 export default function Layout() {
   return (
     <div className={styles.container}>
+      <ScrollRestoration />
       <div className={styles.content}>
         <nav className={styles.nav}>
           <img className={styles.logo} src={logo} alt="Logo de Kasa" />
