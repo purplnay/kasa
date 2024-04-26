@@ -6,6 +6,8 @@ import styles from "./Carousel.module.scss";
 export default function Carousel({ pictures, title }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  const displayCursor = pictures.length > 1;
+
   const onButtonClick = useCallback(
     (newIndex) => {
       if (newIndex < 0) {
@@ -21,14 +23,16 @@ export default function Carousel({ pictures, title }) {
 
   return (
     <div className={styles.container}>
-      <button
-        className={`${styles.button} ${styles.previousButton}`}
-        type="button"
-        title="Image précédente"
-        onClick={() => onButtonClick(currentIndex - 1)}
-      >
-        <img className={styles.buttonIcon} src={previous} alt="Précédent" />
-      </button>
+      {displayCursor && (
+        <button
+          className={`${styles.button} ${styles.previousButton}`}
+          type="button"
+          title="Image précédente"
+          onClick={() => onButtonClick(currentIndex - 1)}
+        >
+          <img className={styles.buttonIcon} src={previous} alt="Précédent" />
+        </button>
+      )}
       <ul className={styles.list}>
         {pictures.map((picture, i) => (
           <li
@@ -45,17 +49,21 @@ export default function Carousel({ pictures, title }) {
           </li>
         ))}
       </ul>
-      <button
-        className={`${styles.button} ${styles.nextButton}`}
-        type="button"
-        title="Image suivante"
-        onClick={() => onButtonClick(currentIndex + 1)}
-      >
-        <img className={styles.buttonIcon} src={next} alt="Suivant" />
-      </button>
-      <div className={styles.counter}>
-        {currentIndex + 1}/{pictures.length}
-      </div>
+      {displayCursor && (
+        <button
+          className={`${styles.button} ${styles.nextButton}`}
+          type="button"
+          title="Image suivante"
+          onClick={() => onButtonClick(currentIndex + 1)}
+        >
+          <img className={styles.buttonIcon} src={next} alt="Suivant" />
+        </button>
+      )}
+      {displayCursor && (
+        <div className={styles.counter}>
+          {currentIndex + 1}/{pictures.length}
+        </div>
+      )}
     </div>
   );
 }
