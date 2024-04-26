@@ -1,0 +1,24 @@
+@import "../styles/mixins";
+
+.content {
+  margin: 20px 0;
+
+  @include desktop {
+    max-width: 1024px;
+    margin: 42px auto;
+  }
+}
+
+.title {
+  @include sr-only;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @include desktop {
+    gap: 42px;
+  }
+}
