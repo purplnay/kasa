@@ -57,6 +57,7 @@
   background-color: $red;
   min-width: 84px;
   height: 18px;
+  padding: 0 4px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -67,6 +68,7 @@
   @include desktop {
     border-radius: 10px;
     min-width: 115px;
+    padding: 0 8px;
     height: 25px;
     font-size: 0.875em;
   }
