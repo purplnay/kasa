@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import arrowUp from "../assets/arrow-up.svg";
 import styles from "./Collapse.module.scss";
 
 export default function Collapse({ title, children }) {
+  const contentEl = useRef(null);
   const [isOpened, setIsOpened] = useState(false);
 
   return (
@@ -21,9 +22,11 @@ export default function Collapse({ title, children }) {
         </button>
       </div>
       <div
-        className={`${styles.content}${
-          isOpened ? ` ${styles.contentActive}` : ""
-        }`}
+        ref={contentEl}
+        className={styles.content}
+        style={{
+          maxHeight: isOpened ? contentEl.current?.scrollHeight : 0,
+        }}
       >
         <div className={styles.innerContent}>{children}</div>
       </div>
